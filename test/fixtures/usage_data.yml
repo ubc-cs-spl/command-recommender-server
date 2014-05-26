@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: MyString
+  what: MyString
+  kind: MyString
+  bundleVersion: MyString
+  description: MyString
+  bindingUsed: false
+  time: 
+
+two:
+  user_id: MyString
+  what: MyString
+  kind: MyString
+  bundleVersion: MyString
+  description: MyString
+  bindingUsed: false
+  time: 
