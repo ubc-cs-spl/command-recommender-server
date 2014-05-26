@@ -9,8 +9,7 @@ class CommandRecommenderController < ApplicationController
 		render text: params[:usage_data]		
 	end
 
-	def get_recommendations
-		save_data(params[:usage_data][:user_id],params[:usage_data][:data])
+	def get_recommendations	
 		recommendation = Recommendation.new(:user_id)
 		render text: recommendation.create_recommendation()
 	end
