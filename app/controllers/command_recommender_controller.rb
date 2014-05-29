@@ -5,12 +5,14 @@ class CommandRecommenderController < ApplicationController
 	respond_to :json
 
 	def upload_data
-		save_data(params[:usage_data][:user_id],params[:usage_data][:data])
+		File.open('/home/spencer/test_file.json', 'w'){|f| 
+			f.write(params.inspect)
+		}
+		save_data(params[:user_id],params[:commands])
 		render text: params[:usage_data]		
 	end
 
 	def get_recommendations
-		save_data(params[:usage_data][:user_id],params[:usage_data][:data])
 		recommendation = Recommendation.new(:user_id)
 		render text: recommendation.create_recommendation()
 	end

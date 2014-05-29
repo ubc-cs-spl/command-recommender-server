@@ -56,5 +56,5 @@ Recommender::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 post '/recommend/:user_id', to: 'command_recommender#get_recommendations', as: 'recommend'
-post '/upload_data/:user_id', to: 'command_recommender#upload_data', as: 'upload'
+post '/upload_data', to: 'command_recommender#upload_data', as: 'upload'
 end
