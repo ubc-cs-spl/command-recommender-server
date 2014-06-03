@@ -16,7 +16,7 @@ class CommandRecommenderController < ApplicationController
 	end
 
 	def get_recommendations	
-		recommendation = get_recommendation(params[:usage_data][:user_id])
+		recommendation = get_recommendation(params[:user_id])
 		render text: recommendation
 	end
 
