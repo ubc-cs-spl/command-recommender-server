@@ -15,7 +15,7 @@ class CommandRecommenderController < ApplicationController
 		end
 	end
 
-	def get_recommendations	
+	def create_recommendations	
 		recommendation = get_recommendation(params[:user_id])
 		render text: "http://localhost:3000/recommendation/#{params[:user_id]}"
 	end
