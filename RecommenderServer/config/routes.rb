@@ -1,4 +1,4 @@
-Recommender::Application.routes.draw do
+RecommenderServer::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -54,7 +54,8 @@ Recommender::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'r
-post '/create_recommendations', to: 'command_recommender#create_recommendations', as: 'recommend'
-post '/upload_data', to: 'command_recommender#upload_data', as: 'upload'
+  # match ':controller(/:action(/:id))(.:format)'
+  get 'get_recommendations/:user_id', to: 'recommendation#get_recommendations', as: 'recommendations'
+  post 'mark_recommendation/:user_id', to: 'recommendation#mark_recommendaiton', as: 'mark'
+  get 'mark_recommendation/:user_id', to: 'recommendation#mark_recommendaiton', as: 'mark'
 end

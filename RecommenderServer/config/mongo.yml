@@ -9,16 +9,16 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: recommender_usage_data_development
+  database: recommender_recommendaiton_development
 
 test:
   <<: *defaults
-  database: recommender_usage_data_test
+  database: recommender_recommendaiton_test
   w: 0
 
 # set these environment variables on your prod server
 production:
   <<: *defaults
-  database: recommender_usage_data
+  database: recommender_recommendaiton
   username: <%= ENV['MONGO_USERNAME'] %>
   password: <%= ENV['MONGO_PASSWORD'] %>
