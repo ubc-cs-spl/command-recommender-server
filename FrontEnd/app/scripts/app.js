@@ -9,10 +9,13 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/:userId', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'RecommendationController'
       })
+        .when('/', {
+            templateUrl: 'views/invalid-user.html'
+        })
       .otherwise({
         redirectTo: '/'
       });
@@ -20,5 +23,5 @@ angular
         return {
             restrict: 'E',
             templateUrl: 'views/navigation-element.html'
-        }
+        };
     });

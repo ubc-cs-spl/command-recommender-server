@@ -74,7 +74,7 @@ module.exports = function (grunt) {
               livereload: 35729
           },
           proxies: [{
-              context: '/get_recommendations', // the context of the data service
+              context: '/api', // the context of the data service
               host: 'localhost', // wherever the data service is running
               port: 3000// the port that the data service is running on
           }],
