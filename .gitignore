@@ -17,3 +17,5 @@
 *.swp
 
 RecommenderProject/bin/*
+
+.idea/*

@@ -1,0 +1,18 @@
+<div ng-controller="MainCtrl">
+    <div class = "panel panel-default" ng-repeat="recommendaiton in recommendations">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-10"><h2>{{recommendaiton.command_detail.command_name}}</h2></div>
+                <div class="col-md-1"><h3><span class="label label-default">{{recommendaiton.command_detail.shortcut}}</span></h3></div>
+            </div>
+        </div>
+        <div class="panel-body">
+           <p class="text-muted">How To Use This Command:</p>
+           <p>{{recommendaiton.command_detail.description}}</p>
+            <hr>
+           <p class="text-muted">Why We Recommended This Command:</p>
+           <p>{{recommendaiton.reason}}</p>
+
+        </div>
+    </div>
+</div>
