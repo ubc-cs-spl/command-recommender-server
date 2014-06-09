@@ -1,10 +1,7 @@
 'use strict';
 
 angular.module('frontEndApp')
-  .controller('NavigationCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('NavigationController', ['$scope', '$routeParams', function ($scope, $routeParams) {
+        $scope.userId = $routeParams.userId;
+        $scope.current = $routeParams.current;
+  }]);

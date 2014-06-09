@@ -3,12 +3,15 @@
 angular.module('frontEndApp')
   .controller('RecommendationController', ['$scope', '$http', '$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
         $scope.recommendations = {};
+        $scope.filterParams = {};
         function getRecommendations(){
-                $http.get('/api/get_recommendations/' + $routeParams.userId).success(function(data){
-                    if(data.length == 0){
+                $http.get('/api/get_recommendations/' + $routeParams.userId + '/' + $routeParams.current).success(function(data){
+                    if(data.length === 0){
                         $location.url('/');
                     }
+
                     $scope.recommendations = data;
+
                 });
         }
         getRecommendations();
@@ -17,9 +20,9 @@ angular.module('frontEndApp')
             var recommendation = this.recommendation;
             $http.get('/api/mark_recommendation/' + recommendation.id, {
                 params: {useful: useful}
-            }).success(function(data){
+            }).success(function(){
                recommendation.useful = useful;
-            })
+            });
         };
 
         $scope.isUsefulSelected = function(recommendation){

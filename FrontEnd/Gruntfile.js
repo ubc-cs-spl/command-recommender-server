@@ -6,10 +6,6 @@
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
-var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
-var mountFolder = function (connect, dir) {
-    return connect.static(require('path').resolve(dir));
-};
 
 module.exports = function (grunt) {
 
@@ -257,7 +253,7 @@ module.exports = function (grunt) {
     // The following *-min tasks produce minified files in the dist folder
     cssmin: {
       options: {
-        root: '<%= yeoman.app %>'
+        //root: '<%= yeoman.app %>'
       }
     },
 
@@ -342,6 +338,11 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        }, {
+            expand: true,
+            cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/fonts/bootstrap',
+            dest: '<%= yeoman.dist %>/fonts',
+            src: '*.*'
         }]
       },
       styles: {

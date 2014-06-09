@@ -1,5 +1,21 @@
-<div ng-controller="RecommendationController">
-    <div class = "panel panel-default" ng-repeat="recommendation in recommendations | orderBy: 'new':true | orderBy: 'created_on' | limitTo: 10">
+<div class="navbar navbar-inverse navbar-static-top" role="navigation" ng-controller="NavigationController">
+    <div class="navbar-header">
+        <div class="navbar-brand">Command Recommender</div>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li ng-class="{'active': current == 'current'}">
+                <a ng-href="#/{{userId}}/current">Current Recommendations</a>
+            </li>
+            <li ng-class="{'active': current == 'past'}">
+                <a ng-href="#/{{userId}}/past">Past Recommendations</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class = "container" ng-controller="RecommendationController">
+    <div class = "panel panel-default" ng-repeat="recommendation in recommendations">
         <div class="panel-heading">
             <div class="row">
                 <div class="col-md-9"><h2>{{recommendation.command_detail.command_name}}</h2></div>

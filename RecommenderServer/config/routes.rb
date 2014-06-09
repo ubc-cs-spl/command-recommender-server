@@ -56,7 +56,7 @@ RecommenderServer::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-   get 'api/get_recommendations/:user_id', to: 'recommendation#get_recommendations', as: 'recommendations'
+   get 'api/get_recommendations/:user_id/:current', to: 'recommendation#get_recommendations', as: 'recommendations'
    get 'api/mark_recommendation/:recommendation_id', to: 'recommendation#mark_recommendaiton', as: 'mark'
 
 end

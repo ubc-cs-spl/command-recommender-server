@@ -7,21 +7,19 @@ angular
     'ngSanitize',
     'ngRoute'
   ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      .when('/:userId', {
+      .when('/:userId/:current', {
         templateUrl: 'views/main.html',
         controller: 'RecommendationController'
       })
-        .when('/', {
+        .when('/:userId', {
+            redirectTo: '/:userId/current'
+        })
+      .when('/', {
             templateUrl: 'views/invalid-user.html'
         })
       .otherwise({
         redirectTo: '/'
       });
-  }).directive('navigation', function(){
-        return {
-            restrict: 'E',
-            templateUrl: 'views/navigation-element.html'
-        };
-    });
+  }]);
