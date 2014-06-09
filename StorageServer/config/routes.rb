@@ -55,6 +55,5 @@ Recommender::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'r
-post '/create_recommendations', to: 'command_recommender#create_recommendations', as: 'recommend'
-post '/upload_data', to: 'command_recommender#upload_data', as: 'upload'
+post '/api/upload_data', to: 'command_recommender#upload_data', as: 'upload'
 end
