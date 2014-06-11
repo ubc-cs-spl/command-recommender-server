@@ -12,7 +12,7 @@ gem 'mongo_mapper'
 gem 'oj'
 gem 'faker'
 
-group :development, :test do
+group :test do
   gem "rspec-rails", :github => "rspec/rspec-rails"
   gem 'spork-rails', '~>4.0.0'
   gem 'factory_girl_rails', '~>4.0'
