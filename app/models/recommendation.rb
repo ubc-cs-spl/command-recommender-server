@@ -1,13 +1,13 @@
 class Recommendation
   include MongoMapper::Document
 
-  key :user_id, String
+  key :user_id, String, :required => true
   key :new_recommendation, Boolean
   key :useful, Boolean
-  key :created_on, Date
-  key :reason, String
+  key :created_on, Date, :required => true
+  key :reason, String, :required => true
 
-  key :command_detail_id, ObjectId
+  key :command_detail_id, ObjectId, :require => true
   belongs_to :command_detail
 
   def self.create_indexes
