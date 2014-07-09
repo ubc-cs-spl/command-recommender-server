@@ -1,11 +1,18 @@
 class RecommendationController < ApplicationController
   def get_recommendations
+
     if params[:current] == 'current'
-      @recommendations = Recommendation.where(:user_id => params[:user_id]).sort(:new.desc).limit(10)
+      @recommendations = Recommendation.where(:user_id => params[:user_id]).sort(:new_recommendation.desc).limit(10)
     else
-      @recommendations = Recommendation.where(:user_id => params[:user_id]).sort(:new.desc).skip(10)
+      @recommendations = Recommendation.where(:user_id => params[:user_id]).sort(:new_recommendation.desc).skip(10)
     end
-    render json: @recommendations.to_json(:include => :command_detail)
+    unless @user = User.find_by_user_id(params[:user_id])
+      puts @user.inspect
+      render json: {status: 400}
+    else
+      puts @user.inspect
+      render json: @recommendations.to_json(:include => :command_detail)
+    end
   end
 
   def mark_recommendaiton

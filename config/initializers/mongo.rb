@@ -4,6 +4,6 @@ Recommendation.create_indexes
 
 if defined?(PhusionPassenger)
   PhusionPassenger.on_event(:starting_worker_process) do |forked|
-    MongoMapper.conneciton.connect if forked
+    MongoMapper.connection.connect if forked
   end
 end
