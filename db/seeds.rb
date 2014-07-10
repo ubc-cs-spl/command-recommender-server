@@ -7,7 +7,7 @@ require 'faker'
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Recommendation.collection.remove
-(1..50).each{ |i|
+(1..9).each{ |i|
   if i > 10
     useful = Random.rand % 2 == 0 ? true : false
   else

@@ -10,6 +10,7 @@ class Recommendation
   key :algorithm_type, String
   key :algorithm_value, Float
   key :command_id, String, :required => true
+  key :saved, Boolean
 
   key :command_detail_id, ObjectId, :require => true
   belongs_to :command_detail

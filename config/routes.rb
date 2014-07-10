@@ -58,5 +58,8 @@ RecommenderServer::Application.routes.draw do
 
    get 'api/get_recommendations/:user_id/:current', to: 'recommendation#get_recommendations', as: 'recommendations'
    get 'api/mark_recommendation/:recommendation_id', to: 'recommendation#mark_recommendaiton', as: 'mark'
-
+  get 'api/save_recommendation/:recommendation_id', to: 'recommendation#save_recommendation', as: 'save'
+  post 'api/command_details/:command_detail_id/update', to: 'command_details#update', as: 'update'
+  get 'api/command_details/:command_detail_id/show', to: 'command_details#show'
+  get 'api/command_details/filter/:filter_type', to: 'command_details#find'
 end
