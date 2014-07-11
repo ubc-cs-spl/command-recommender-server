@@ -1,31 +1,37 @@
 class CommandDetailsController < ApplicationController
   respond_to :json
   def update
-    @command_detail = CommandDetail.find(params[:command_detail_id])
+
+    unless @command_detail = CommandDetail.find(params[:command_detail_id])
+      render :json => {status: 422}
+    end
     @command_detail.command_name = params[:command_name]
     @command_detail.description = params[:description]
     @command_detail.shortcut = params[:shortcut]
-
-    respond_to do |format|
-        if @command_detail.save
-          format.json {render :json => @command_detail}
-        else
-          format.json {render :json => {status: 422, errors: @command_detail.errors}}
-        end
-      end
-  end
-
-  def show
-    respond_to do |format|
-      if @command_detail = CommandDetail.find(params[:command_detail_id])
-        format.json { render :json => @command_detail}
-      else
-        format.json { render :json => {status: 500}}
-      end
+    puts @command_detail.to_json
+    puts @command_detail.valid?
+    if @command_detail.save
+      render :json => @command_detail
+    else
+      render :json => {:errors => @command_detail.errors}, :status => 422
     end
   end
 
+  def show
+      if @command_detail = CommandDetail.find(params[:command_detail_id])
+       render :json => @command_detail
+      else
+       render :json, :status => 500
+      end
+  end
+
   def find
-    
+    if params[:filter] == "all"
+      @command_details = CommandDetail.where(params[:filter_type] => /#{params[:filter_value]}.*/).fields(:command_id, :command_name).all
+    else
+      @command_details = CommandDetail.where(params[:filter_type] => /#{params[:filter_value]}.*/, :command_name => "").fields(:command_id, :command_name).all
+    end
+
+    render :json => @command_details
   end
 end
