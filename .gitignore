@@ -19,3 +19,5 @@
 RecommenderProject/bin/*
 
 .idea/*
+
+Gemfile.lock
