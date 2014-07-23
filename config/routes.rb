@@ -64,4 +64,5 @@ RecommenderServer::Application.routes.draw do
   get 'api/command_details/filter/:filter_type', to: 'command_details#find'
   get 'api/users/is_valid/:user_id', to: 'recommendation#is_valid_user'
   get 'api/recommendations/:user_id/algorithm_types', to: 'recommendation#get_algorithm_types'
+  get 'api/reports/:user_id', to: 'report#get_reports'
 end

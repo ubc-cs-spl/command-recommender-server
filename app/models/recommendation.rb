@@ -12,7 +12,7 @@ class Recommendation
   key :command_id, String, :required => true
   key :saved, Boolean
 
-  key :command_detail_id, ObjectId, :require => true
+  key :command_detail_id, ObjectId, :required => true
   belongs_to :command_detail
 
   def self.create_indexes
