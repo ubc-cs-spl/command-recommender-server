@@ -5,7 +5,7 @@ class ReportController < ApplicationController
     end
 
     @reports = Report.where(:user_id => params[:user_id])
-   
-    render json: @reports.to_json
+
+    render json: @reports.to_json(:include => {:command_stats => {:include => :command_detail}})
   end
 end
