@@ -16,6 +16,6 @@ class Recommendation
   belongs_to :command_detail
 
   def self.create_indexes
-    self.ensure_index([[:user_id, 1], [:command_detail_id, 1]])
+    self.ensure_index([[:user_id, 1], [:algorithm_type, 1], [:command_detail_id, 1]])
   end
 end

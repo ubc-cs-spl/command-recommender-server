@@ -5,4 +5,5 @@ class CommandDetail
   key :command_id, String, :required => true, :unique => true
   key :description, String, :required => true
   key :shortcut, String
+  key :mac_shortcut, String
 end

@@ -56,13 +56,13 @@ RecommenderServer::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-   get 'api/get_recommendations/:user_id/:current', to: 'recommendation#get_recommendations', as: 'recommendations'
-   get 'api/mark_recommendation/:recommendation_id', to: 'recommendation#mark_recommendation', as: 'mark'
+  get 'api/get_recommendations/:user_id/:current', to: 'recommendation#get_recommendations', as: 'recommendations'
+  get 'api/mark_recommendation/:recommendation_id', to: 'recommendation#mark_recommendation', as: 'mark'
   get 'api/save_recommendation/:recommendation_id', to: 'recommendation#save_recommendation', as: 'save'
   post 'api/command_details/:command_detail_id/update', to: 'command_details#update', as: 'update'
   get 'api/command_details/:command_detail_id/show', to: 'command_details#show'
-  get 'api/command_details/filter/:filter_type', to: 'command_details#find'
+  get 'api/command_details/filter', to: 'command_details#find'
   get 'api/users/is_valid/:user_id', to: 'recommendation#is_valid_user'
   get 'api/recommendations/:user_id/algorithm_types', to: 'recommendation#get_algorithm_types'
-  get 'api/reports/:user_id', to: 'report#get_reports'
+  get 'api/report/:user_id', to: 'report#get_report'
 end

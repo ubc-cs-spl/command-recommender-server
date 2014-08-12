@@ -26,7 +26,7 @@ class CommandDetailsController < ApplicationController
   end
 
   def find
-    if params[:filter] == "all"
+    if params[:filter] == 'all'
       @command_details = CommandDetail.where(params[:filter_type] => /#{params[:filter_value]}.*/).fields(:command_id, :command_name).all
     else
       @command_details = CommandDetail.where(params[:filter_type] => /#{params[:filter_value]}.*/, :command_name => "").fields(:command_id, :command_name).all

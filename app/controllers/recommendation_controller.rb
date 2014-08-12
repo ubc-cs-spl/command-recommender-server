@@ -36,7 +36,7 @@ class RecommendationController < ApplicationController
   end
 
   def is_valid_user
-    if @user = User.find_by_user_id(params[:user_id])
+    if User.find_by_user_id(params[:user_id])
       render json: {:valid => true}
     else
       render json: {:valid => false}
