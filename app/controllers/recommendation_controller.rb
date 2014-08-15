@@ -8,11 +8,12 @@ class RecommendationController < ApplicationController
                                               :useful => {:$ne => false}
                                              )
                                         .sort(:rank.asc).limit(10)
-    elsif params[:current] == 'past'
+    elsif params[:current] == 'all'
       @recommendations = Recommendation.where(:user_id => params[:user_id],
                                               :algorithm_type => params[:algorithm_type],
                                               :saved => {:$ne => true},
-                                              :useful => {:$new =>false}
+                                              :useful => {:$ne => false},
+                                              :rank => {:$ne => nil},
                                               ).sort(:rank.asc).skip(10)
     else
       @recommendations = Recommendation.where(:user_id => params[:user_id], :saved => true)
