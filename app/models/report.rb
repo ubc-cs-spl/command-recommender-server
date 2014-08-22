@@ -22,6 +22,7 @@ class Report
         cmd['name'] = detail['command_name']
         cmd['shortcut'] = detail['shortcut']
         cmd['mac_shortcut'] = detail['mac_shortcut']
+        cmd['_id'] = detail['_id']
       end
     end
     {stats: results, total_invocation: total_invocation}
