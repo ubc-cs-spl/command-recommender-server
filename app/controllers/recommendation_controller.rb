@@ -1,13 +1,15 @@
 class RecommendationController < ApplicationController
   def get_recommendations
-    if params[:current] == 'current'
-      @recommendations = Recommendation.where(
-                                              :user_id => params[:user_id],
+    if params[:algorithm_type] == 'mixed'
+      @recommendations = Recommendation.where(:user_id => params[:user_id],
+                                              :useful => {:$ne => false}
+                                              ).sort(:rank.asc).limit(10)
+    elsif params[:current] == 'current'
+      @recommendations = Recommendation.where(:user_id => params[:user_id],
                                               :algorithm_type => params[:algorithm_type],
                                               :saved => {:$ne => true},
                                               :useful => {:$ne => false}
-                                             )
-                                        .sort(:rank.asc).limit(10)
+                                             ).sort(:rank.asc).limit(10)
     elsif params[:current] == 'all'
       @recommendations = Recommendation.where(:user_id => params[:user_id],
                                               :algorithm_type => params[:algorithm_type],

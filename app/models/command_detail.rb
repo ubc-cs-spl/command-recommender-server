@@ -6,4 +6,6 @@ class CommandDetail
   key :description, String, :required => true
   key :shortcut, String
   key :mac_shortcut, String
+  key :use_count, Integer
+  key :user_count, Integer
 end
